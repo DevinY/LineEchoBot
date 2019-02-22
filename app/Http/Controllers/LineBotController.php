@@ -64,6 +64,10 @@ class LineBotController extends Controller
         if($event instanceof MessageEvent) {
           Log::info('MessageEvent');
           if ($event instanceof TextMessage) {
+            Log::info("LineBotController.php TextMessage");
+            //Laravel的Log中，可以看到RootId或GroupId，可以用來推播。
+            // /api/text?to=[groupId]&message=推播
+            Log::info($req->getBody());
             $handler = new TextMessageEventHandler($this->bot, $req, $event);
           }elseif($event instanceof ImageMessage){
             Log::info('ImageMessage');
@@ -83,6 +87,13 @@ class LineBotController extends Controller
           } elseif ($event instanceof FollowEvent) {
 
           } elseif ($event instanceof JoinEvent) {
+
+            Log::info("LineBotController.php JoinEvent");
+            //Laravel的Log中，可以看到RootId或GroupId，可以用來推播。
+            // /api/text?to=[groupId]&message=推播
+            Log::info($req->getBody());
+            return response('OK', 200)
+            ->header('Content-Type', 'text/plain');
 
           } elseif ($event instanceof LeaveEvent) {
 

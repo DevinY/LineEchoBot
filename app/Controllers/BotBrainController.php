@@ -75,8 +75,9 @@ class BotBrainController extends Memorize
   
   //只要有文字，就回傳相同的文字
   $answer = (new EchoBot($userText))->解釋();
-  if(''!=$answer) return ['text'=>$answer];
-
+    Log::info("BotBrainController.php");
+    //註解掉這行停用Echo的功能
+    if(''!=$answer) return ['text'=>$answer];
 
   }
 
