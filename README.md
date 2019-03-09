@@ -40,7 +40,7 @@ https://您的域名/callback
 
 網址傳入:
 
-https://您的域名/api/push_text?message=這是推播訊息&to=[UserId]
+https://您的域名/api/text?message=這是推播訊息&to=[UserId]
 
 查看Laravel的Log可以看到userId
 <pre>
